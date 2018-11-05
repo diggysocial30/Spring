@@ -1,13 +1,15 @@
 package com.diggysocial30.springbasics.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class BinarySearchImpl { 
 	
 	@Autowired
-	private SortAlgorithm quickSortAlgorithm;
+	@Qualifier("quick")
+	private SortAlgorithm sortAlgo;
 	
 	 /*2 ways of dependency injection in Spring for loose coupling
 	 1. Constructor Initialization
@@ -28,7 +30,7 @@ public class BinarySearchImpl {
 	
 	
 	public int binarySearch(int[] numbers,int numberToSearch){
-		quickSortAlgorithm.sort(numbers);
+		sortAlgo.sort(numbers);
 		return numberToSearch;
 	}
 }
