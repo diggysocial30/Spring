@@ -2,8 +2,6 @@ package com.diggysocial30.springbasics.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 
@@ -22,7 +20,6 @@ GlobalSession : It returns a single bean instance per global HTTP session. It is
 In most cases, you may only deal with the Spring’s core scope – singleton and prototype, and the default scope is singleton.*/
 
 @Component
-@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class BinarySearchImpl { 
 	
 	@Autowired

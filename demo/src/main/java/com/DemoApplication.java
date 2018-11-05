@@ -1,8 +1,14 @@
-package com.diggysocial30.springbasics.demo;
+package com;
 
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+
+import com.diggysocial30.springbasics.demo.BinarySearchImpl;
+import com.jdbc.PersonDAO;
 
 
 /*SpringBootApplication scans for the cpmponents and the dependencies
@@ -10,6 +16,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class DemoApplication {
+	
+	private static Logger LOGGER=LoggerFactory.getLogger(DemoApplication.class);
 
 	/*what are beans ?
 	what are the dependency of a bean ?
@@ -30,5 +38,15 @@ public class DemoApplication {
 		System.out.println(binarySearch1);
 		int result=binarySearch.binarySearch(new int[]{1,2,4}, 4);
 		System.out.println(result);
+		
+		
+		PersonDAO personDAO= context.getBean(PersonDAO.class);
+		
+		PersonDAO personDAO2= context.getBean(PersonDAO.class);
+		LOGGER.info("{}",personDAO);
+		LOGGER.info("{}",personDAO2);
+		
+		LOGGER.info("{}",personDAO.getJdbcConnection());
+		LOGGER.info("{}",personDAO2.getJdbcConnection());
 	}
 }
