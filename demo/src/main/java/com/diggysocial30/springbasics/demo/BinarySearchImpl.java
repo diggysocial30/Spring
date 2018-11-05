@@ -13,11 +13,14 @@ public class BinarySearchImpl {
 	 1. Constructor Initialization
 	 2. Setter methods*/
 	
-	public BinarySearchImpl(SortAlgorithm sortAlgo) {
+	/*public BinarySearchImpl(SortAlgorithm sortAlgo) {
 		super();
 		this.sortAlgo = sortAlgo;
-	}
+	}*/
 
+	public void setSortAlgo(SortAlgorithm sortAlgo) {
+		this.sortAlgo = sortAlgo;
+	}
 
 	//1. Sort an array
 	//2. Search in it
