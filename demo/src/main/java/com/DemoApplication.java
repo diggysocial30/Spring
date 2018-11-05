@@ -6,15 +6,19 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 import com.diggysocial30.springbasics.demo.BinarySearchImpl;
 import com.jdbc.PersonDAO;
+
+import scan.SDAO;
 
 
 /*SpringBootApplication scans for the cpmponents and the dependencies
 */
 
 @SpringBootApplication
+@ComponentScan({"scan","com.diggysocial30.springbasics.demo","com.jdbc"})
 public class DemoApplication {
 	
 	private static Logger LOGGER=LoggerFactory.getLogger(DemoApplication.class);
@@ -26,7 +30,7 @@ public class DemoApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(DemoApplication.class, args);
 		
-		// Spring Applicaion context will manage all the beans
+		// Spring Applicaton context will manage all the beans
 		
 		BinarySearchImpl binarySearch = context.getBean(BinarySearchImpl.class);
 		BinarySearchImpl binarySearch1 = context.getBean(BinarySearchImpl.class);
@@ -43,6 +47,7 @@ public class DemoApplication {
 		PersonDAO personDAO= context.getBean(PersonDAO.class);
 		
 		PersonDAO personDAO2= context.getBean(PersonDAO.class);
+		SDAO sDAO2= context.getBean(SDAO.class);
 		LOGGER.info("{}",personDAO);
 		LOGGER.info("{}",personDAO2);
 		
