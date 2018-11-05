@@ -1,5 +1,8 @@
 package com.diggysocial30.springbasics.demo;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -47,5 +50,16 @@ public class BinarySearchImpl {
 	public int binarySearch(int[] numbers,int numberToSearch){
 		sortAlgo.sort(numbers);
 		return numberToSearch;
+	}
+	
+	
+	@PostConstruct
+	public void check(){
+		System.out.println("*******constructing************");
+	}
+	
+	@PreDestroy
+	public void preDestroy(){
+		System.out.println("*******destroying************");
 	}
 }
