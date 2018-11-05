@@ -1,7 +1,12 @@
 package com.diggysocial30.springbasics.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class BinarySearchImpl { 
 	
+	@Autowired
 	private SortAlgorithm sortAlgo;
 	
 	 /*2 ways of dependency injection in Spring for loose coupling
