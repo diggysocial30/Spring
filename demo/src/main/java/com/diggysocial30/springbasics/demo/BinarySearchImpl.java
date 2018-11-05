@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class BinarySearchImpl { 
 	
 	@Autowired
-	private SortAlgorithm sortAlgo;
+	private SortAlgorithm quickSortAlgorithm;
 	
 	 /*2 ways of dependency injection in Spring for loose coupling
 	 1. Constructor Initialization
@@ -16,11 +16,11 @@ public class BinarySearchImpl {
 	/*public BinarySearchImpl(SortAlgorithm sortAlgo) {
 		super();
 		this.sortAlgo = sortAlgo;
-	}*/
+	}
 
 	public void setSortAlgo(SortAlgorithm sortAlgo) {
 		this.sortAlgo = sortAlgo;
-	}
+	}*/
 
 	//1. Sort an array
 	//2. Search in it
@@ -28,7 +28,7 @@ public class BinarySearchImpl {
 	
 	
 	public int binarySearch(int[] numbers,int numberToSearch){
-		sortAlgo.sort(numbers);
+		quickSortAlgorithm.sort(numbers);
 		return numberToSearch;
 	}
 }
