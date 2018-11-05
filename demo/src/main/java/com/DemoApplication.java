@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
+import com.cdi.SomeCDIBusiness;
 import com.diggysocial30.springbasics.demo.BinarySearchImpl;
 import com.jdbc.PersonDAO;
 
@@ -18,7 +19,7 @@ import scan.SDAO;
 */
 
 @SpringBootApplication
-@ComponentScan({"scan","com.diggysocial30.springbasics.demo","com.jdbc"})
+@ComponentScan({"scan","com.diggysocial30.springbasics.demo","com.jdbc","com.cdi"})
 public class DemoApplication {
 	
 	private static Logger LOGGER=LoggerFactory.getLogger(DemoApplication.class);
@@ -51,7 +52,14 @@ public class DemoApplication {
 		LOGGER.info("{}",personDAO);
 		LOGGER.info("{}",personDAO2);
 		
+
 		LOGGER.info("{}",personDAO.getJdbcConnection());
 		LOGGER.info("{}",personDAO2.getJdbcConnection());
+		
+		SomeCDIBusiness someCDIBusiness= context.getBean(SomeCDIBusiness.class);
+		
+		LOGGER.info("{}",someCDIBusiness);
+		LOGGER.info("{}",someCDIBusiness.getDao());
+		
 	}
 }
