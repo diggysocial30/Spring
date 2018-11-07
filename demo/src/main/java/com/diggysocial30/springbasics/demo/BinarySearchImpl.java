@@ -5,7 +5,7 @@ import javax.annotation.PreDestroy;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 
 /*5 types of bean scopes are supported :
@@ -22,7 +22,7 @@ GlobalSession : It returns a single bean instance per global HTTP session. It is
 
 In most cases, you may only deal with the Spring’s core scope – singleton and prototype, and the default scope is singleton.*/
 
-@Component
+@Service
 public class BinarySearchImpl { 
 	
 	@Autowired
