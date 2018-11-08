@@ -7,7 +7,7 @@ import javax.inject.Named;
 
 @Named
 public class SomeCDIBusiness {
-	
+
 	@Inject
 	private SomeCDIDAO dao;
 
@@ -18,6 +18,15 @@ public class SomeCDIBusiness {
 	public void setDao(SomeCDIDAO dao) {
 		this.dao = dao;
 	}
-	
+
+	public int fetchGreatest() {
+		int greatest = Integer.MIN_VALUE;
+		for (int i : getDao().getData()) {
+			if (greatest < i) {
+				greatest = i;
+			}
+		}
+		return greatest;
+	}
 
 }
