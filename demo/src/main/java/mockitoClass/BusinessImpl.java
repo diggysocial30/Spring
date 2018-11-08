@@ -2,7 +2,7 @@ package mockitoClass;
 
 public class BusinessImpl {
 	
-	private DataService dataService;
+	public DataService dataService;
 	
 	public BusinessImpl(DataService dataService) {
 		super();
