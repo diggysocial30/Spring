@@ -5,37 +5,31 @@ import static org.mockito.Mockito.when;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.Mockito;
 
-
-@RunWith(MockitoJUnitRunner.class)
-public class TestMockBusinessImpl {
+public class TestMockAnnotationsBusinessImpl {
 	
-	
-	@InjectMocks
-	static BusinessImpl businessImpl;
-	@Mock
-	static DataService dataServiceMock;
+	static BusinessImpl businessImpl=null;
 	
 	@BeforeClass
 	public static void mockDataService(){
-		businessImpl=new BusinessImpl(dataServiceMock);
+		DataService mock =Mockito.mock(DataService.class);
+		businessImpl=new BusinessImpl(mock);
 		
 	}
 
 	@Test
 	public void testFetchReliableDataService() {
 		when(businessImpl.dataService.retrieveAllData()).thenReturn(new int[]{1,2,3,4});
-		assertEquals(4,businessImpl.fetchReliableDataService());
+		int a=businessImpl.fetchReliableDataService();
+		assertEquals(4,a);
 	}
 
 	@Test
 	public void testFetchReliableDataService2() {
 		when(businessImpl.dataService.retrieveAllData()).thenReturn(new int[]{1,2,3,4,10});
-		assertEquals(10,businessImpl.fetchReliableDataService());
+		int a=businessImpl.fetchReliableDataService();
+		assertEquals(10,a);
 	}
 }
 
